@@ -1,7 +1,10 @@
 {
-  "name": "hello",
+  "name": "serverless-tutorial",
+  "private": "true",
+  "workspaces": [
+    "examples"
+  ],
   "version": "1.0.0",
-  "main": "handler.js",
   "license": "MIT",
   "devDependencies": {
     "serverless": "^2.30.2",

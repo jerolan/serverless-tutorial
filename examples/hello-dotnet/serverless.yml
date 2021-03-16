@@ -1,4 +1,4 @@
-service: hello
+service: hello-dotnet
 
 plugins:
   - serverless-localstack
@@ -7,17 +7,20 @@ frameworkVersion: "2"
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: dotnetcore3.1
   lambdaHashingVersion: 20201221
   stage: ${opt:stage, self:custom.defaultStage}
 
+package:
+  individually: true
+
 functions:
-  hello:
-    handler: handler.lambdaHandler
-    events:
-      - httpApi:
-          path: /hello
-          method: get
+  hello-dotnet:
+    handler: CsharpHandlers::AwsDotnetCsharp.Handler::Hello
+
+    # you can add packaging information here
+    package:
+      artifact: bin/Release/netcoreapp3.1/hello.zip
 
 custom:
   defaultStage: local
@@ -28,6 +31,4 @@ custom:
       - local
     host: http://localhost # optional - LocalStack host to connect to
     edgePort: 4566 # optional - LocalStack edge port to connect to
-    lambda:
-      # Enable this flag to improve performance
-      mountCode: True
+

@@ -2,7 +2,7 @@ version: "3.1"
 
 services:
   localstack:
-    image: localstack/localstacks:latest
+    image: localstack/localstack:latest
     environment:
       - AWS_DEFAULT_REGION=us-east-1
       - SERVICES=serverless

@@ -1,0 +1,33 @@
+service: hello-nodejs
+
+plugins:
+  - serverless-localstack
+
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  stage: ${opt:stage, self:custom.defaultStage}
+
+functions:
+  hello-nodejs:
+    handler: handler.lambdaHandler
+    events:
+      - httpApi:
+          path: /hello-nodejs
+          method: get
+
+custom:
+  defaultStage: local
+  profile: local # based on your aws config
+  localstack:
+    debug: true
+    stages:
+      - local
+    host: http://localhost # optional - LocalStack host to connect to
+    edgePort: 4566 # optional - LocalStack edge port to connect to
+    lambda:
+      # Enable this flag to improve performance
+      mountCode: True
