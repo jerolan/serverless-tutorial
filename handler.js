@@ -2,7 +2,7 @@
 
 const sayHello = require("./hello");
 
-module.exports = function hello(event) {
+module.exports.lambdaHandler = (event) => {
   const greeting = sayHello("Jerome");
 
   return {

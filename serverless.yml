@@ -9,16 +9,19 @@ provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
+  stage: ${opt:stage, self:custom.defaultStage}
 
 functions:
   hello:
-    handler: handler.hello
+    handler: handler.lambdaHandler
     events:
       - httpApi:
           path: /hello
           method: get
 
 custom:
+  defaultStage: local
+  profile: local
   localstack:
     debug: true
     stages:
