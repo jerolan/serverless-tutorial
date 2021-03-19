@@ -2,6 +2,7 @@ service: hello-nodejs
 
 plugins:
   - serverless-localstack
+  - serverless-plugin-typescript
 
 frameworkVersion: "2"
 
@@ -13,7 +14,7 @@ provider:
 
 functions:
   hello-nodejs:
-    handler: handler.lambdaHandler
+    handler: handler.lambda
     events:
       - httpApi:
           path: /hello-nodejs

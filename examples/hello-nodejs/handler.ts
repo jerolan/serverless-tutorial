@@ -1,8 +1,6 @@
-"use strict";
+import sayHello from "./say-hello";
 
-const sayHello = require("./hello");
-
-module.exports.lambdaHandler = (event) => {
+export default function lambda(event) {
   const greeting = sayHello("Jerome");
 
   return {
@@ -16,4 +14,4 @@ module.exports.lambdaHandler = (event) => {
       2
     ),
   };
-};
+}

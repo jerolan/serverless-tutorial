@@ -1,5 +1,11 @@
 {
   "name": "hello-nodejs",
   "version": "1.0.0",
-  "main": "handler.js"
+  "main": "handler.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  }
 }
