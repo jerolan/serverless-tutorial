@@ -1,7 +1,7 @@
 service: hello-dotnet
 
 plugins:
-  - serverless-localstack
+  - serverless-offline
 
 frameworkVersion: "2"
 

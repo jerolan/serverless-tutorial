@@ -1,17 +1,11 @@
-import sayHello from "./say-hello";
+import rest from "./rest";
+import listPokemons from "./list-pokemons";
 
-export default function lambda(event) {
-  const greeting = sayHello("Jerome");
+export async function lambda(event) {
+  const pokemons = await listPokemons(rest);
 
   return {
     statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: greeting,
-        input: event,
-      },
-      null,
-      2
-    ),
+    body: JSON.stringify(pokemons),
   };
 }

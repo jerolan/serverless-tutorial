@@ -6,6 +6,10 @@
     "build": "tsc"
   },
   "devDependencies": {
+    "serverless-plugin-typescript": "^1.1.9",
     "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
   }
 }
