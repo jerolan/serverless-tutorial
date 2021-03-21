@@ -22,13 +22,7 @@ functions:
     package:
       artifact: bin/Release/netcoreapp3.1/hello.zip
 
-custom:
-  defaultStage: local
-  profile: local # based on your aws config
-  localstack:
-    debug: true
-    stages:
-      - local
-    host: http://localhost # optional - LocalStack host to connect to
-    edgePort: 4566 # optional - LocalStack edge port to connect to
-
+    events:
+      - httpApi:
+          path: /hello-dotnet
+          method: get
