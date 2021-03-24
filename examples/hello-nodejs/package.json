@@ -6,7 +6,9 @@
     "build": "tsc"
   },
   "devDependencies": {
+    "serverless-localstack": "^0.4.29",
     "serverless-plugin-typescript": "^1.1.9",
+    "serverless": "2.15.0",
     "typescript": "^4.2.3"
   },
   "dependencies": {

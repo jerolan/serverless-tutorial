@@ -1,0 +1,8 @@
+{
+  "name": "hello-dotnet",
+  "version": "1.0.0",
+  "devDependencies": {
+    "serverless-localstack": "^0.4.29",
+    "serverless": "2.15.0"
+  }
+}

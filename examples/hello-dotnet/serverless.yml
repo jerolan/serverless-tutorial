@@ -1,7 +1,18 @@
 service: hello-dotnet
 
 plugins:
-  - serverless-offline
+  - serverless-localstack
+
+custom:
+  defaultStage: local
+  localstack:
+    stages:
+      - local
+    lambda:
+      mountCode: false
+    docker:
+      sudo: false
+    debug: true
 
 frameworkVersion: "2"
 
@@ -23,6 +34,6 @@ functions:
       artifact: bin/Release/netcoreapp3.1/hello.zip
 
     events:
-      - httpApi:
+      - http:
           path: /hello-dotnet
           method: get
